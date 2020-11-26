@@ -2,11 +2,11 @@ let plantHardinessZone = {};
 
 const getZone = () => {
   return new Promise((resolve)=> {
-    fetch('https://phzmapi.org/78660.json')
+    fetch('https://c0bra.api.stdlib.com/zipcode-to-hardiness-zone/?zipcode=78660')
       .then(res=>res.json())
       .then(response => {
         plantHardinessZone = response;
-        console.log(response)
+        // console.log(response)
         console.log(plantHardinessZone)
         resolve();
     })
@@ -16,6 +16,12 @@ const getZone = () => {
   })
 }
 
-getZone();
-console.log("hello")
-console.log(plantHardinessZone)
+const displayZone = () => {
+    console.log(plantHardinessZone.zone)
+}
+
+getZone()
+    .then(displayZone)
+
+// console.log("hello")
+
